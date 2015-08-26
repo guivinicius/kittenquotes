@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: kittenquote_development
+
+test:
+  <<: *default
+  database: kittenquote_test
+  
+production:
+  <<: *default
+  database: kittenquote_production
+  username: kittenquote
+  password: <%= ENV['KITTENQUOTE_DATABASE_PASSWORD'] %>
