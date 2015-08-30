@@ -1,0 +1,5 @@
+<%= flash[:notice] %>
+<%= form_tag subscribe_path do %>
+  <%= email_field_tag :email %>
+  <%= submit_tag "Subscribe" %>
+<% end %>
