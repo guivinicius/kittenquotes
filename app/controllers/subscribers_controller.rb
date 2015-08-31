@@ -6,9 +6,9 @@ class SubscribersController < ApplicationController
     subscriber = Subscriber.new(subscribe_params)
 
     if subscriber.save
-      flash[:notice] =  t('application.messages.success')
+      flash[:success] =  t('application.messages.success')
     else
-      flash[:notice] =  subscriber.errors.full_messages.first
+      flash[:danger] =  subscriber.errors.full_messages.first
     end
 
     redirect_to root_path

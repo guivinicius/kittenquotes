@@ -1,5 +1,15 @@
-<%= flash[:notice] %>
-<%= form_tag subscribe_path do %>
-  <%= email_field_tag :email %>
-  <%= submit_tag "Subscribe" %>
-<% end %>
+<div class="inner cover">
+  <h1 class="cover-heading">Kitten Quotes</h1>
+  <p class="lead">Your daily source of feline wisdom.</p>
+  <p class="lead">
+    <%= form_tag subscribe_path, class: 'form-inline' do %>
+      <div class="form-group row">
+        <div class="col-xs-12">
+          <%= render "shared/flash" %>
+          <%= email_field_tag :email, nil, class: 'form-control input-lg', placeholder: 'emailforcatcontent@gmail.com' %>
+          <%= submit_tag "Subscribe", class: 'btn btn-lg' %>
+        </div>
+      </div>
+    <% end %>
+  </p>
+</div>

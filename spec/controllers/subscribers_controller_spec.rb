@@ -35,7 +35,7 @@ RSpec.describe SubscribersController, type: :controller do
     context "when user doesn\'t exists" do
 
       it "assigns flash message" do
-        expect(flash[:notice]).to eq(I18n.t('application.messages.success'))
+        expect(flash[:success]).to eq(I18n.t('application.messages.success'))
       end
     end
 
@@ -43,7 +43,7 @@ RSpec.describe SubscribersController, type: :controller do
       let(:params) { { email: user.email } }
 
       it "assigns flash message" do
-        expect(flash[:notice]).to eq("Email has already been taken")
+        expect(flash[:danger]).to eq("Email has already been taken")
       end
     end
 
@@ -51,7 +51,7 @@ RSpec.describe SubscribersController, type: :controller do
       let(:params) { { email: "evilcatgmail.com" } }
 
       it "assigns flash message" do
-        expect(flash[:notice]).to eq("Email is invalid")
+        expect(flash[:danger]).to eq("Email is invalid")
       end
     end
   end
