@@ -1,3 +1,1 @@
-web: rails s
-redis: redis-server
-sidekiq: bundle exec sidekiq
+web: bundle exec rails server -p $PORT
