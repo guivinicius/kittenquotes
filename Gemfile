@@ -7,6 +7,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails', '~> 4.0.4'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'sidekiq', '~> 3.4.2'
+gem 'webmock', '~> 1.21.0'
 
 group :development, :test do
   gem 'byebug', '~> 6.0.2'
@@ -20,7 +22,7 @@ group :development do
 end
 
 group :production do
-  gem 'rails_12factor'
+  gem 'rails_12factor', '~> 0.0.3'
 end
 
 group :test do
