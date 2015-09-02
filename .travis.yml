@@ -1,0 +1,8 @@
+env:
+- DB=postgresql
+before_script:
+- psql -c 'create database kittenquote_test' -U postgres
+script:
+- RAILS_ENV=test bundle exec rake --trace db:migrate
+- bundle exec rspec spec
+cache: bundler
