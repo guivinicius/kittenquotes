@@ -9,6 +9,7 @@ gem 'jquery-rails', '~> 4.0.4'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sidekiq', '~> 3.4.2'
 gem 'celluloid', '0.16.0'
+gem 'has_secure_token', '~> 1.0.0'
 
 gem 'sinatra', :require => nil
 
