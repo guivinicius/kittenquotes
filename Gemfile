@@ -32,4 +32,5 @@ group :test do
   gem 'webmock', '~> 1.21.0'
   gem 'database_cleaner', '~> 1.4.1'
   gem 'capybara', '~> 2.4.4'
+  gem "codeclimate-test-reporter", '~> 0.4.7', require: nil
 end
