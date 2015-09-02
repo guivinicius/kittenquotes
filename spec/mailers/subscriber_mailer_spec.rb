@@ -17,7 +17,6 @@ RSpec.describe SubscriberMailer do
       expect(email.subject).to eq("Daily Cat Wisdom")
       expect(email.from).to eq(["bastet-no-reply@catheaven.eg"])
       expect(email.to).to eq([subscriber.email])
-      expect(email.bcc).to eq([])
     end
 
     it 'has the right content' do

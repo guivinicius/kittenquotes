@@ -7,6 +7,6 @@ class SubscriberMailer < ApplicationMailer
     @image_url = image_url
     @author    = author
 
-    mail(to: @email, bcc: ENV["ADMIN_EMAIL"], subject: 'Daily Cat Wisdom')
+    mail(to: @email, subject: 'Daily Cat Wisdom')
   end
 end
