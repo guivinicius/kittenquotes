@@ -11,6 +11,8 @@ gem 'sidekiq', '~> 3.4.2'
 gem 'webmock', '~> 1.21.0'
 gem 'celluloid', '0.16.0'
 
+gem 'sinatra', :require => nil
+
 group :development, :test do
   gem 'byebug', '~> 6.0.2'
   gem 'rspec-rails', '~> 3.0'
