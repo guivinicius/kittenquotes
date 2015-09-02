@@ -8,7 +8,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails', '~> 4.0.4'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sidekiq', '~> 3.4.2'
-gem 'webmock', '~> 1.21.0'
 gem 'celluloid', '0.16.0'
 
 gem 'sinatra', :require => nil
@@ -29,6 +28,7 @@ group :production do
 end
 
 group :test do
+  gem 'webmock', '~> 1.21.0'
   gem 'database_cleaner', '~> 1.4.1'
   gem 'capybara', '~> 2.4.4'
 end
