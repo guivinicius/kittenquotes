@@ -9,6 +9,7 @@ gem 'jquery-rails', '~> 4.0.4'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sidekiq', '~> 3.4.2'
 gem 'webmock', '~> 1.21.0'
+gem 'celluloid', '0.16.0'
 
 group :development, :test do
   gem 'byebug', '~> 6.0.2'
