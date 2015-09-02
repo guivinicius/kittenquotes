@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe DailyWisdomJob do
-  let(:subscribers) { FactoryGirl.create_list(:subscriber, 4) }
-  let(:emails)      { subscribers.map(&:email) }
+  let(:subscriber) { FactoryGirl.create(:subscriber) }
   let(:image_url)   { "someurl.com/cat.jpg" }
   let(:quote_body)  { File.read("#{Rails.root}/spec/fixtures/jobs/daily_wisdom.json") }
   let(:quote)       { "Bird by bird, buddy. Just take it bird by bird. " }
@@ -23,10 +22,10 @@ RSpec.describe DailyWisdomJob do
       message_delivery = instance_double(ActionMailer::MessageDelivery)
 
       expect(SubscriberMailer).to receive(:daily_wisdom).
-        with(emails, quote, author, image_url).
+        with(subscriber, quote, author, image_url).
         and_return(message_delivery)
 
-      expect(message_delivery).to receive(:deliver_now)
+      expect(message_delivery).to receive(:deliver_later)
 
       described_class.perform_now
     end

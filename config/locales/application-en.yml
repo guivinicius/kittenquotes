@@ -2,3 +2,6 @@ en:
   application:
     messages:
       success: "You are now subscribed to the best cat wisdom website ever!"
+      success_deleted: "Dont worry, the cats are still going to love you."
+      error_deleting: "Can't be deleted."
+      not_found: "Email not found."

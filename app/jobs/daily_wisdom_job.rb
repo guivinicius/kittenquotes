@@ -8,14 +8,14 @@ class DailyWisdomJob < ActiveJob::Base
     image_url = get_response(IMAGE_API_URI)['location']
     quote_obj = get_parsed_response(QUOTE_API_URI)['contents']['quotes'][0]
 
-    emails    = Subscriber.pluck(:email)
-
-    SubscriberMailer.daily_wisdom(
-      emails,
-      quote_obj['quote'],
-      quote_obj['author'],
-      image_url
-    ).deliver_now
+    Subscriber.all.find_each(batch_size: 100) do |subscriber|
+      SubscriberMailer.daily_wisdom(
+        subscriber,
+        quote_obj['quote'],
+        quote_obj['author'],
+        image_url
+      ).deliver_later
+    end
   end
 
   private

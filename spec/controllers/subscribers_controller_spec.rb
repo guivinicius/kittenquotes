@@ -24,7 +24,7 @@ RSpec.describe SubscribersController, type: :controller do
       get :create, params
     end
 
-    it "returns http success" do
+    it "returns http redirect" do
       expect(response).to have_http_status(:redirect)
     end
 
@@ -52,6 +52,39 @@ RSpec.describe SubscribersController, type: :controller do
 
       it "assigns flash message" do
         expect(flash[:danger]).to eq("Email is invalid")
+      end
+    end
+  end
+
+  describe "GET #delete" do
+    let!(:user) { FactoryGirl.create(:subscriber) }
+    let(:params) { { email: "nyan@universe.com" } }
+
+    before do
+      get :delete, params
+    end
+
+    it "returns http redirect" do
+      expect(response).to have_http_status(:redirect)
+    end
+
+    it "redirects to index" do
+      expect(response).to redirect_to(root_path)
+    end
+
+    context "when user exists adn token is right" do
+      let(:params) { { email: user.email, token: user.token } }
+
+      it "assigns flash message" do
+        expect(flash[:success]).to eq(I18n.t('application.messages.success_deleted'))
+      end
+    end
+
+    context "when email or token is wrong" do
+      let(:params) { { email: "evilcatgmail.com", token: "aaaaaa" } }
+
+      it "assigns flash message" do
+        expect(flash[:danger]).to eq(I18n.t('application.messages.not_found'))
       end
     end
   end

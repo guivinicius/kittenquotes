@@ -1,13 +1,13 @@
 # Preview all emails at http://localhost:3000/rails/mailers/subscriber_mailer
 class SubscriberMailerPreview < ActionMailer::Preview
   def daily_wisdom
-    SubscriberMailer.daily_wisdom(emails, quote, author, image_url)
+    SubscriberMailer.daily_wisdom(subscriber, quote, author, image_url)
   end
 
   private
 
-  def emails
-    FactoryGirl.build_list(:subscriber, 5).map(&:email)
+  def subscriber
+    Subscriber.new(email: "cat@catheaven.com", token: "123333aaa")
   end
 
   def quote

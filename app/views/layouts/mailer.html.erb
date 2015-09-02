@@ -1,5 +1,10 @@
 <html>
   <body>
-    <%= yield %>
+    <center>
+      <%= yield %>
+
+      <hr/>
+      <%= link_to "Unsubscribe", unsubscribe_url(email: @email, token: @token), style: "font-size:11px;" %>
+    </center>
   </body>
 </html>

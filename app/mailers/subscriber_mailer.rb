@@ -1,10 +1,12 @@
 class SubscriberMailer < ApplicationMailer
 
-  def daily_wisdom(emails = [], quote, author, image_url)
+  def daily_wisdom(subscriber, quote, author, image_url)
+    @email     = subscriber.email
+    @token     = subscriber.token
     @quote     = quote
     @image_url = image_url
     @author    = author
 
-    mail(to: ENV["ADMIN_EMAIL"], bcc: emails, subject: 'Daily Cat Wisdom')
+    mail(to: @email, bcc: ENV["ADMIN_EMAIL"], subject: 'Daily Cat Wisdom')
   end
 end
